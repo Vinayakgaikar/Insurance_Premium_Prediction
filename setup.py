@@ -7,7 +7,7 @@ PROJECT_NAME="insurance-premium-prediction"
 VERSION="0.0.3"
 AUTHOR="Vinayak Gaikar"
 DESCRIPTION="This is the first ineuron internship Project"
-#PACKAGES=["housing"]   # insted of this we can also use find_packeges function 
+#PACKAGES=["insurance"]   # insted of this we can also use find_packeges function 
 REQUIREMENT_FILEE_NAME="requirements.txt"
 
 
