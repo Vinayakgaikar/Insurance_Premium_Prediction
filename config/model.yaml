@@ -6,42 +6,43 @@ grid_search:
     verbose: 2
 model_selection:
   module_0:
-    class: CatBoostRegressor
-    module: catboost
+    class: LinearRegression
+    module: sklearn.linear_model
     params:
-      learning_rate: 0.1
+      fit_intercept: True
     search_param_grid:
-      learning_rate:
-      - 0.1
-      - 0.01
-      - 0.02
-      - 0.06
+      fit_intercept:
+      - True
+      - False
   module_1:
     class: RandomForestRegressor
     module: sklearn.ensemble
     params:
       min_samples_leaf: 2
-      max_features: 'sqrt'
+      max_features: 7
       n_estimators: 100
-      max_depth: 2
+      max_depth: 5
     search_param_grid:
       min_samples_leaf:
       - 2
-      - 8
-      - 15
-      - 10
       max_features:
-      - 5
       - 7
-      - "sqrt"
-      - "log2"
       n_estimators:
       - 100
-      - 200
-      - 500
-      - 1000
       max_depth:
       - 5
-      - 8
-      - 10
+  module_2:
+    class: XGBRegressor
+    module: xgboost
+    params: 
+      n_estimators: 500
+      max_depth: 3
+      eta: 0.01
+      colsample_bytree: 1.0
+    search_param_grid:
+      n_estimators: 
+        - 500
+
+      
+
 

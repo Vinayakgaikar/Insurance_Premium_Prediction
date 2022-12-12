@@ -3,10 +3,12 @@ from insurance.logger import logging #get_log_file_name
 from insurance.exception import insuranceException
 
 
-from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformationArtifact
+from insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformationArtifact,\
+                                             ModelTrainerArtifact
 from insurance.component.data_ingestion import DataIngestion
 from insurance.component.data_validation import DataValidation
 from insurance.component.data_transformation import DataTransformation
+from insurance.component.model_trainer import ModelTrainer
 from insurance.constant import *
 import os,sys
 
@@ -55,6 +57,14 @@ class Pipeline :#(Thread):
         except Exception as e:
             raise insuranceException(e, sys)
 
+    def start_model_trainer(self, data_transformation_artifact: DataTransformationArtifact) -> ModelTrainerArtifact:
+        try:
+            model_trainer = ModelTrainer(model_trainer_config=self.config.get_model_trainer_config(),
+                                         data_transformation_artifact=data_transformation_artifact
+                                         )
+            return model_trainer.initiate_model_trainer()
+        except Exception as e:
+            raise insuranceException(e, sys) from e
 
     def run_pipeline(self):
         try:
@@ -62,6 +72,7 @@ class Pipeline :#(Thread):
             data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
             data_transformation_artifact = self.start_data_transformation(data_ingestion_artifact=data_ingestion_artifact,
                                                                         data_validation_artifact=data_validation_artifact)
+            model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)                                                                        
                                                                         
         except Exception as e:
             raise insuranceException(e,sys) from e
