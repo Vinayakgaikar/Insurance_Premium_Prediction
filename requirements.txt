@@ -5,6 +5,7 @@ sklearn
 pandas
 PyYAML  
 evidently  #checking data drift
-dill
+dill       #Used to serialize and deserialize pickle file
 sacred
--e .
+#-e .
+

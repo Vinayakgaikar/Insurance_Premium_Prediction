@@ -39,7 +39,7 @@ class DataIngestion :
             zip_file_path = os.path.join(zip_download_dir, insurance_file_name)
 
             logging.info(f"Downloading file from :[{download_url}] into :[{zip_file_path}]")
-            urllib.request.urlretrieve(download_url, zip_file_path)
+            urllib.request.urlretrieve(download_url, zip_file_path) #Retrieve a URL into a temporary location on disk.
             logging.info(f"File :[{zip_file_path}] has been downloaded successfully.")
             return zip_file_path
 
@@ -63,7 +63,7 @@ class DataIngestion :
         except Exception as e:
             raise insuranceException(e,sys) from e
 
-     # Split data into startified sampling
+    # Split data into startified sampling
     def split_data_as_train_test(self) -> DataIngestionArtifact:
         try:
             raw_data_dir = self.data_ingestion_config.raw_data_dir
@@ -75,23 +75,17 @@ class DataIngestion :
 
             insurance_data_frame = pd.read_csv(insurance_file_path)
             
-            #One Hot Encoding to treat Categorical data parameters
-            insurance_data_frame= pd.get_dummies(insurance_data_frame)
-            
-            
             insurance_data_frame["bmi_category"] = pd.cut(
                 insurance_data_frame["bmi"],
                 bins = [0.0, 20.0, 30.0, 40.0, 50.0, np.inf],
                 labels = [1,2,3,4,5])
-
-
 
             logging.info(f"Spliting data into train and test")
 
             strat_train_set = None
             strat_test_set = None
 
-            split = StratifiedShuffleSplit(n_splits=1, test_size = 0.3, random_state=42)
+            split = StratifiedShuffleSplit(n_splits=1, test_size = 0.2, random_state=42)
 
             for train_index,test_index in split.split(insurance_data_frame, insurance_data_frame["bmi_category"]):
                 strat_train_set = insurance_data_frame.loc[train_index].drop(["bmi_category"],axis=1)
