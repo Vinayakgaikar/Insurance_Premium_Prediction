@@ -31,7 +31,7 @@ model_trainer_config:
   model_config_file_name: model.yaml
 
 
-#model_evaluation_config:
+model_evaluation_config:
   model_evaluation_file_name: model_evaluation.yaml
   
 
