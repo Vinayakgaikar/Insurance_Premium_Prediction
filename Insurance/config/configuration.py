@@ -2,8 +2,7 @@
 
 # This entity functions gives the structure what configuration information we want to spesify in config folder
 from insurance.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,\
-                                           TrainingPipelineConfig,ModelTrainerConfig,ModelEvaluationConfig
-#  ModelPusherConfig, 
+                                        TrainingPipelineConfig,ModelTrainerConfig,ModelEvaluationConfig,ModelPusherConfig 
 from insurance.exception import insuranceException
 from insurance.logger import logging
 from insurance.util.util import read_yaml_file
@@ -192,6 +191,22 @@ class Configuration:
         except Exception as e:
             raise insuranceException(e,sys) from e
 
+    def get_model_pusher_config(self) -> ModelPusherConfig:
+        try:
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+
+            export_dir_path = os.path.join(ROOT_DIR, 
+                              model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                              time_stamp)
+
+            model_pusher_config = ModelPusherConfig(export_dir_path = export_dir_path) 
+            
+            logging.info(f"Model pusher config {model_pusher_config}")
+            return model_pusher_config
+
+        except Exception as e:
+            raise insuranceException(e,sys) from e
 
     def get_training_pipeline_config(self) -> TrainingPipelineConfig :
         try:
