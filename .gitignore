@@ -80,7 +80,7 @@ target/
 # IPython
 profile_default/
 ipython_config.py
-insurance/artifact
+#insurance/artifact
 
 # pyenv
 .python-version

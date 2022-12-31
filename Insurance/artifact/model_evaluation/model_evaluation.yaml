@@ -3,3 +3,5 @@ best_model:
 history:
   2022-12-17-14-00-17:
     model_path: C:\Users\VINAYAK\Projects\Insurance_Premium_Prediction\insurance\artifact\model_trainer\2022-12-13-12-31-30\trained_model\model.pkl
+
+
