@@ -3,6 +3,7 @@
 * The goal of this project is to give people an estimate of how much health risk they have based on their individual health situation. 
 * After that, customers can work with any health insurance carrier and its plans and perks while keeping the projected cost from our model in mind. 
 * This can assist a person in concentrating on the health side of an insurance policy rather than the ineffective part.
+* To Predict insurance premium value we ues features : Age, Gender(Male/Female), BMI(Body mass index), Number of Childrens, Smoker(Yes/No), Region(Southeast/Southwest/Northeast/Northwest)       
 
 ## 💿 Installing
 
