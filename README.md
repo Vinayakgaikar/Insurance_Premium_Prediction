@@ -60,6 +60,20 @@ From these above models after hyperparameter optimization we selected Top two mo
 
 **Custom Logger and Exceptions** are used in the Project for better debugging purposes.
 
+## Application Screenshots
+### **This is the screenshot of the final Webpage which was done using the Flask**
+![webpage](static/webpage.png)
+
+### **This is the screenshot of the webpage which gets user input for prediction**
+![webpage](static/predictform.png)
+
+### **This is the screenshot of the page which shows history of the experiment that was Run**
+#### Can be used as experiment history Tracking
+![experiment history](static/history of experiments.png)
+
+### **This is the screenshot of the page in which user can change the model parameters for the experiment**
+![model parameters](static/update_model_config.png)
+
 ## Conclusion
 - This Project can be used in real-life by Medical Insurance Companies to predict the Health risk involved for a patient and give an estimate for Insurance Premium for the particular customer.
 
