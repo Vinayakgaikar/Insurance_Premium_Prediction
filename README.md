@@ -69,10 +69,10 @@ From these above models after hyperparameter optimization we selected Top two mo
 
 ### **This is the screenshot of the page which shows history of the experiment that was Run**
 #### Can be used as experiment history Tracking
-![experiment history](static/history of experiments.png)
+![experiment history](static/history_of_experiments.png)
 
 ### **This is the screenshot of the page in which user can change the model parameters for the experiment**
-![model parameters](static/update_model_config.png)
+![model parameters](static/Update_model_config.png)
 
 ## Conclusion
 - This Project can be used in real-life by Medical Insurance Companies to predict the Health risk involved for a patient and give an estimate for Insurance Premium for the particular customer.
