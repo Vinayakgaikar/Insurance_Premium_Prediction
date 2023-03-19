@@ -3,7 +3,7 @@ import logging
 from datetime import datetime
 import os
 import pandas as pd
-from insurance.constant import get_current_time_stamp
+from Insurance.constant import get_current_time_stamp
 LOG_DIR="insurance_logs"
 
 def get_log_file_name():
