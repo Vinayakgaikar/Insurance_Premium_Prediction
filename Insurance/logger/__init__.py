@@ -11,7 +11,8 @@ def get_log_file_name():
 
 LOG_FILE_NAME=get_log_file_name()
 
-os.makedirs(LOG_DIR,exist_ok=True)
+os.makedirs(LOG_DIR,exist_ok=True)  
+
 
 LOG_FILE_PATH = os.path.join(LOG_DIR,LOG_FILE_NAME)
 
