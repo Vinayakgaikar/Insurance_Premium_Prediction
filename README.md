@@ -1,3 +1,5 @@
+## AWS Deploy link[https://mjmcmkpdz2.us-east-1.awsapprunner.com/]
+
 # Insurance_Premium_Prediction
 #### Ineuron internship project
 * The goal of this project is to give people an estimate of how much health risk they have based on their individual health situation. 
